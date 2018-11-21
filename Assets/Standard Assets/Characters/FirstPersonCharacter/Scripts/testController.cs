@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -7,9 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : MonoBehaviour
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
+    public class testController : MonoBehaviour
     {
         public int p1Arm = 1;
         public int p2Arm = 1;
@@ -64,10 +64,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
             m_StepCycle = 0f;
-            m_NextStep = m_StepCycle/2f;
+            m_NextStep = m_StepCycle / 2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
-			m_MouseLook.Init(transform , m_Camera.transform);
+            m_MouseLook.Init(transform, m_Camera.transform);
         }
 
 
@@ -75,14 +75,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
 
-            if (Input.GetButtonDown("Action1")) {
-                if (p1Arm == 1) {
+            if (Input.GetButtonDown("Action1"))
+            {
+                if (p1Arm == 1)
+                {
                     Fire(1);
                 }
-                if (p1Arm == 2) {
+                if (p1Arm == 2)
+                {
 
                 }
-                if (p1Arm == 3) {
+                if (p1Arm == 3)
+                {
 
                 }
             }
@@ -166,8 +170,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_JumpSpeed = 20;
             }
-            else {
-                m_JumpSpeed = 10;        
+            else
+            {
+                m_JumpSpeed = 10;
             }
 
             RotateView();
@@ -216,9 +221,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             p2CanSwitch = true;
         }
 
-       void P1switchModel()
+        void P1switchModel()
         {
-            if (p1Arm == 1) {
+            if (p1Arm == 1)
+            {
                 leftArms[0].SetActive(true);
                 leftArms[1].SetActive(false);
                 leftArms[2].SetActive(false);
@@ -259,16 +265,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-        void Fire(int arm) {
+        void Fire(int arm)
+        {
             if (arm == 1)
             {
-                var bullet = (GameObject) Instantiate(projectile, leftArm.transform.GetChild(3).position, leftArm.transform.rotation);
+                var bullet = (GameObject)Instantiate(projectile, leftArm.transform.GetChild(3).position, leftArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
             }
             if (arm == 2)
             {
-                var bullet = (GameObject) Instantiate(projectile, rightArm.transform.GetChild(3).position, rightArm.transform.rotation);
+                var bullet = (GameObject)Instantiate(projectile, rightArm.transform.GetChild(3).position, rightArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
             }
@@ -287,17 +294,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
             Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
-                               m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
-          //desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
+                               m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+            //desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal);
 
-            m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
+            m_MoveDir.x = desiredMove.x * speed;
+            m_MoveDir.z = desiredMove.z * speed;
 
 
             if (m_CharacterController.isGrounded)
@@ -314,9 +321,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
+                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
             }
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+            m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
@@ -336,7 +343,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
-                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
+                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed * (m_IsWalking ? 1f : m_RunstepLenghten))) *
                              Time.fixedDeltaTime;
             }
 
@@ -379,7 +386,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
+                                      (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
@@ -410,10 +417,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
-          /*if (m_Input.sqrMagnitude > 1)
-            {
-                m_Input.Normalize();
-            }*/
+            /*if (m_Input.sqrMagnitude > 1)
+              {
+                  m_Input.Normalize();
+              }*/
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
@@ -427,7 +434,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+            m_MouseLook.LookRotation(transform, m_Camera.transform);
         }
 
 
@@ -444,7 +451,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
-            body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+            body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
         }
     }
 }
