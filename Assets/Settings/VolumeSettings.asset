@@ -33,11 +33,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   skyType:
-    m_OverrideState: 1
-    m_Value: 0
+    m_OverrideState: 0
+    m_Value: 2
   fogType:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 2
 --- !u!114 &114527594671542966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2150ee00179b2f4418ea8b21a7e98eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   colorMode:
     m_OverrideState: 1
     m_Value: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
     min: 0
   fogDistance:
     m_OverrideState: 1
-    m_Value: 16.8
+    m_Value: 841.7
     min: 0
   fogBaseHeight:
     m_OverrideState: 1
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   rotation:
     m_OverrideState: 1
     m_Value: 0
