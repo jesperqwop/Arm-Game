@@ -93,7 +93,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1674485531799917761
 MonoBehaviour:
@@ -109,7 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
-  fireCooldown: 0
+  fireCooldown: 1
+  projectileSpeed: 50
   rotationSpeed: 3
   projectile: {fileID: 785969283002354117, guid: 1efc1673c2d6df54db6c35e67b7ffa2b,
     type: 3}
