@@ -18,7 +18,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject rightArm;
         public GameObject[] leftArms;
         public GameObject[] rightArms;
-
+        public GameObject projectile;
+        public int projectileSpeed;
         bool p1CanSwitch = true;
         bool p2CanSwitch = true;
 
@@ -73,6 +74,34 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+
+            if (Input.GetButtonDown("Action1")) {
+                if (p1Arm == 1) {
+                    Fire(1);
+                }
+                if (p1Arm == 2) {
+
+                }
+                if (p1Arm == 3) {
+
+                }
+            }
+            if (Input.GetButtonDown("Action2"))
+            {
+                if (p2Arm == 1)
+                {
+                    Fire(2);
+                }
+                if (p2Arm == 2)
+                {
+
+                }
+                if (p2Arm == 3)
+                {
+
+                }
+            }
+
             if (p1CanSwitch == true)
             {
                 if (Input.GetAxis("Switch_Left_1") > 0)
@@ -132,11 +161,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 }
             }
+
+            if (p1Arm == 2 && p2Arm == 2)
+            {
+                m_JumpSpeed = 20;
+            }
+            else {
+                m_JumpSpeed = 10;        
+            }
+
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump)
+            if (!m_Jump && p1Arm == 2)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                m_Jump = CrossPlatformInputManager.GetButtonDown("Action1");
+            }
+
+            if (!m_Jump && p2Arm == 2)
+            {
+                m_Jump = CrossPlatformInputManager.GetButtonDown("Action2");
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -159,7 +202,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         IEnumerator P1switch()
         {
             leftArm.GetComponent<Animator>().SetTrigger("switch");
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.20f);
             P1switchModel();
             yield return new WaitForSeconds(0.25f);
             p1CanSwitch = true;
@@ -167,7 +210,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         IEnumerator P2switch()
         {
             rightArm.GetComponent<Animator>().SetTrigger("switch");
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.20f);
             P2switchModel();
             yield return new WaitForSeconds(0.25f);
             p2CanSwitch = true;
@@ -213,6 +256,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 rightArms[0].SetActive(false);
                 rightArms[1].SetActive(false);
                 rightArms[2].SetActive(true);
+            }
+        }
+
+        void Fire(int arm) {
+            if (arm == 1)
+            {
+                var bullet = (GameObject) Instantiate(projectile, leftArm.transform.GetChild(3).position, leftArm.transform.rotation);
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
+                Destroy(bullet, 2.0f);
+            }
+            if (arm == 2)
+            {
+                var bullet = (GameObject) Instantiate(projectile, rightArm.transform.GetChild(3).position, rightArm.transform.rotation);
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
+                Destroy(bullet, 2.0f);
             }
         }
 
