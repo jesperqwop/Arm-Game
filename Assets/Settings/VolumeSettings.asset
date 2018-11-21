@@ -33,8 +33,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   skyType:
-    m_OverrideState: 0
-    m_Value: 2
+    m_OverrideState: 1
+    m_Value: 0
   fogType:
     m_OverrideState: 1
     m_Value: 2
@@ -54,7 +54,7 @@ MonoBehaviour:
   active: 1
   maxShadowDistance:
     m_OverrideState: 1
-    m_Value: 700
+    m_Value: 600
     min: 0
   cascadeShadowSplitCount:
     m_OverrideState: 1
@@ -72,7 +72,7 @@ MonoBehaviour:
     min: 0
     max: 1
   cascadeShadowSplit2:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.3
     min: 0
     max: 1
@@ -117,7 +117,7 @@ MonoBehaviour:
     showEyeDropper: 1
   density:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.974
     min: 0
     max: 1
   mipFogMaxMip:
