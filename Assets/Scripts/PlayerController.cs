@@ -11,8 +11,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class PlayerController : MonoBehaviour
     {
-
-        public float hp;
+        [SerializeField]
+        public float hp = 10;
         public int p1Arm = 1;
         public int p2Arm = 1;
 
@@ -251,6 +251,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void TakeDamage(float damage) {
             hp -= damage;
+            print("hp");
         }
 
        void P1switchModel()
@@ -472,6 +473,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
+
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it
             if (m_CollisionFlags == CollisionFlags.Below)
@@ -485,5 +487,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
     }
 }

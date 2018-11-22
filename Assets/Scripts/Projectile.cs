@@ -6,12 +6,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Projectile : MonoBehaviour
 {
-    public float damage;
-
+    public float damage;  
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,7 +22,8 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
-           other.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
+            other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 

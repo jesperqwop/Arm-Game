@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1391704438550266369}
   - component: {fileID: 1391704438550266368}
   - component: {fileID: 1391704438550266371}
-  - component: {fileID: 1391704438550266370}
+  - component: {fileID: 1326304921924360052}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1391704438550266370
+--- !u!135 &1326304921924360052
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2728591048424535151}
   m_Layer: 0
   m_Name: EnemyProjectile
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8176499e6f472684583cf92f87593a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 0
+  damage: 1
+  controller: {fileID: 0}
 --- !u!54 &2728591048424535151
 Rigidbody:
   m_ObjectHideFlags: 0
