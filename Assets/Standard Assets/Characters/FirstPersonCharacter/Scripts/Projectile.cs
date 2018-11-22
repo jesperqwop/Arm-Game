@@ -1,13 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
-
 
 public class Projectile : MonoBehaviour
 {
-    public float damage;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +15,4 @@ public class Projectile : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player") {
-           other.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
-        }
-    }
-
 }

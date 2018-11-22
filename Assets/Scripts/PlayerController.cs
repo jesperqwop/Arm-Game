@@ -11,6 +11,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class PlayerController : MonoBehaviour
     {
+
+        public float hp;
         public int p1Arm = 1;
         public int p2Arm = 1;
 
@@ -248,7 +250,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         public void TakeDamage(float damage) {
-
+            hp -= damage;
         }
 
        void P1switchModel()
