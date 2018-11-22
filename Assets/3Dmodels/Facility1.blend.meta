@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: 1989289236423521904
     second: Default Take
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FLoor
+    second: {fileID: 2100000, guid: f61929185c9e9479eab0ca1b9189fc50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlatFloor
+    second: {fileID: 2100000, guid: 609078dc61ff04514b9436fdc59b0f74, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
