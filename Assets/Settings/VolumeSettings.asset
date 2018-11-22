@@ -72,8 +72,8 @@ MonoBehaviour:
     min: 0
     max: 1
   cascadeShadowSplit2:
-    m_OverrideState: 0
-    m_Value: 0.3
+    m_OverrideState: 1
+    m_Value: 0.195
     min: 0
     max: 1
   cascadeShadowBorder0:
@@ -111,13 +111,13 @@ MonoBehaviour:
     m_Value: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   density:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.33
     min: 0
     max: 1
   mipFogMaxMip:
@@ -135,7 +135,7 @@ MonoBehaviour:
     min: 0
   fogDistance:
     m_OverrideState: 1
-    m_Value: 841.7
+    m_Value: 200
     min: 0
   fogBaseHeight:
     m_OverrideState: 1
