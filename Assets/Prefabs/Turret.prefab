@@ -112,7 +112,7 @@ MonoBehaviour:
   fireCooldown: 1
   projectileSpeed: 50
   rotationSpeed: 3
-  projectile: {fileID: 785969283002354117, guid: 1efc1673c2d6df54db6c35e67b7ffa2b,
+  projectile: {fileID: 7531160366926043959, guid: a1e4b6bddd64fd942a94be7456b1eb65,
     type: 3}
 --- !u!1 &1674485532011548703
 GameObject:

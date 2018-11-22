@@ -293,12 +293,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         void Fire(int arm) {
             if (arm == 1)
             {
+                leftArm.GetComponent<Animator>().SetTrigger("fire");
                 var bullet = (GameObject) Instantiate(projectile, leftArm.transform.GetChild(3).position, leftArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
             }
             if (arm == 2)
             {
+                rightArm.GetComponent<Animator>().SetTrigger("fire");
                 var bullet = (GameObject) Instantiate(projectile, rightArm.transform.GetChild(3).position, rightArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
