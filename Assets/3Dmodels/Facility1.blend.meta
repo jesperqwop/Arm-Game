@@ -15,8 +15,43 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: LIghtStrip
+    second: {fileID: 2100000, guid: 8af9b060267c5472290c4983ef7eaea2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LIghtStrip_001
+    second: {fileID: 2100000, guid: 8af9b060267c5472290c4983ef7eaea2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LIghtStrip_003
+    second: {fileID: 2100000, guid: 8af9b060267c5472290c4983ef7eaea2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipelight
+    second: {fileID: 2100000, guid: 6f8f928aa054a47ec8dfd15f29d3c5a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: PlatFloor
     second: {fileID: 2100000, guid: 609078dc61ff04514b9436fdc59b0f74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Steps_Light
+    second: {fileID: 2100000, guid: 8af9b060267c5472290c4983ef7eaea2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 2cf2549dbb5664e2c93722b4d38944f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Windows
+    second: {fileID: 2100000, guid: 6f8f928aa054a47ec8dfd15f29d3c5a7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
