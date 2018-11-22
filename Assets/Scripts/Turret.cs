@@ -52,6 +52,7 @@ public class Turret : MonoBehaviour
         canFire = false;
         var bullet = (GameObject)Instantiate(projectile, transform.GetChild(2).position,transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
+        Destroy(bullet, 2);
         yield return new WaitForSeconds(fireCooldown);
         canFire = true;
     }

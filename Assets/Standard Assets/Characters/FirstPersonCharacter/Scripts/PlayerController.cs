@@ -102,6 +102,37 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
+            if (p1Arm == 3)
+            {
+                if (Input.GetButton("Action1"))
+                {
+                    leftArm.GetComponent<Animator>().SetBool("blocking", true);
+                }
+                else
+                {
+                    leftArm.GetComponent<Animator>().SetBool("blocking", false);
+                }
+            }
+            else {
+                leftArm.GetComponent<Animator>().SetBool("blocking", false);
+            }
+
+            if (p2Arm == 3)
+            {
+                if (Input.GetButton("Action2"))
+                {
+                    rightArm.GetComponent<Animator>().SetBool("blocking", true);
+                }
+                else
+                {
+                    rightArm.GetComponent<Animator>().SetBool("blocking", false);
+                }
+            }
+            else
+            {
+                rightArm.GetComponent<Animator>().SetBool("blocking", false);
+            }
+
             if (p1CanSwitch == true)
             {
                 if (Input.GetAxis("Switch_Left_1") > 0)
@@ -204,7 +235,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             leftArm.GetComponent<Animator>().SetTrigger("switch");
             yield return new WaitForSeconds(0.20f);
             P1switchModel();
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.15f);
             p1CanSwitch = true;
         }
         IEnumerator P2switch()
@@ -212,7 +243,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             rightArm.GetComponent<Animator>().SetTrigger("switch");
             yield return new WaitForSeconds(0.20f);
             P2switchModel();
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.15f);
             p2CanSwitch = true;
         }
 
