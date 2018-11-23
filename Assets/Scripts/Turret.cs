@@ -16,6 +16,7 @@ public class Turret : MonoBehaviour
     bool canFire = true;
     bool canSee;
     LineRenderer lr;
+    AudioSource audio;
 
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class Turret : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = transform.GetChild(2).GetComponent<Animator>();
         lr = GetComponent<LineRenderer>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -84,6 +86,7 @@ public class Turret : MonoBehaviour
 
     IEnumerator Fire() {
         canFire = false;
+        audio.Play();
         var bullet = (GameObject)Instantiate(projectile, transform.GetChild(1).position,transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
         Destroy(bullet, 2);
