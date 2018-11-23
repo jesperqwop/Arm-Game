@@ -25,6 +25,11 @@ public class Projectile : MonoBehaviour
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<Turret>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 
 }

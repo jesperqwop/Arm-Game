@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public float hp;
     public bool inRange;
     public float fireCooldown;
     public float projectileSpeed;
     public float rotationSpeed;
     public GameObject projectile;
+    public GameObject explosion;
     GameObject player;
+    Animator anim;
     bool canFire = true;
 
 
@@ -17,6 +20,7 @@ public class Turret : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        anim = transform.GetChild(2).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,7 +43,7 @@ public class Turret : MonoBehaviour
     {
         if (other.tag == "Player" && inRange == true)
         {
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(player.transform.position - transform.position), Time.deltaTime * rotationSpeed);
+            anim.SetBool("New Bool",true);
             Quaternion targetRotation = Quaternion.LookRotation( player.transform.position - transform.position);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             if (canFire == true) {
@@ -48,9 +52,13 @@ public class Turret : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage) {
+        hp -= damage;
+    }
+
     IEnumerator Fire() {
         canFire = false;
-        var bullet = (GameObject)Instantiate(projectile, transform.GetChild(2).position,transform.rotation);
+        var bullet = (GameObject)Instantiate(projectile, transform.GetChild(1).position,transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
         Destroy(bullet, 2);
         yield return new WaitForSeconds(fireCooldown);
