@@ -45,6 +45,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: TalR_gulv
+    second: {fileID: 2100000, guid: f61929185c9e9479eab0ca1b9189fc50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TalRoom
+    second: {fileID: 2100000, guid: 2cf2549dbb5664e2c93722b4d38944f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Wall
     second: {fileID: 2100000, guid: 2cf2549dbb5664e2c93722b4d38944f9, type: 2}
   - first:
