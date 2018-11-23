@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -13,7 +14,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         public int p1Arm = 1;
         public int p2Arm = 1;
-
         public GameObject leftArm;
         public GameObject rightArm;
         public GameObject[] leftArms;
@@ -74,6 +74,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+
+            GetComponent<UNGA>().p1Arm = p1Arm;
+            GetComponent<UNGA>().p2Arm = p2Arm;
 
             if (Input.GetButtonDown("Action1")) {
                 if (p1Arm == 1) {
