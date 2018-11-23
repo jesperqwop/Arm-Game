@@ -21,7 +21,7 @@ public class Manager : MonoBehaviour
     {
         hpBar.GetComponent<Slider>().value = player.GetComponent<PlayerHealth>().hp;
         if (Input.GetKeyDown("r")) {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }
