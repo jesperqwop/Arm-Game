@@ -14,6 +14,8 @@ public class Turret : MonoBehaviour
     GameObject player;
     Animator anim;
     bool canFire = true;
+    bool canSee;
+    LineRenderer lr;
 
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class Turret : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = transform.GetChild(2).GetComponent<Animator>();
+        lr = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -31,29 +34,52 @@ public class Turret : MonoBehaviour
             Debug.DrawRay(transform.position, (player.transform.position - transform.position) * hit.distance, Color.red);
             if (hit.collider.tag == "Player")
             {
-                inRange = true;
+                canSee = true;
             }
             else {
-                inRange = false;
+                canSee = false;
             }
         }
+
+        if (inRange && canSee == true)
+        {
+            lr.enabled = true;
+            anim.SetBool("active", true);
+            Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            if (canFire == true)
+            {
+                StartCoroutine(Fire());
+            }
+        }
+        else {
+            anim.SetBool("active", false);
+            lr.enabled = false;
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && inRange == true)
+        if (other.tag == "Player" && canSee == true)
         {
-            anim.SetBool("New Bool",true);
-            Quaternion targetRotation = Quaternion.LookRotation( player.transform.position - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-            if (canFire == true) {
-                StartCoroutine(Fire());
-            }
+            inRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player") {
+            inRange = false;
         }
     }
 
     public void TakeDamage(float damage) {
         hp -= damage;
+        if(hp <= 0)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator Fire() {

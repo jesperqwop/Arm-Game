@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -19,5 +20,8 @@ public class Manager : MonoBehaviour
     void Update()
     {
         hpBar.GetComponent<Slider>().value = player.GetComponent<PlayerHealth>().hp;
+        if (Input.GetKeyDown("r")) {
+            SceneManager.LoadScene(0);
+        }
     }
 }

@@ -30,6 +30,9 @@ public class Projectile : MonoBehaviour
             other.GetComponent<Turret>().TakeDamage(damage);
             Destroy(gameObject);
         }
+        if (other.tag == "Shield") {
+            Destroy(gameObject);
+        }
     }
 
 }
