@@ -19,16 +19,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject[] leftArms;
         public GameObject[] rightArms;
         public GameObject projectile;
-        public GameObject fireSFX;
-        public GameObject jumpSFX;
-        public GameObject superJumpSFX;
         public int projectileSpeed;
         bool p1CanSwitch = true;
         bool p2CanSwitch = true;
-        bool p1Pressed;
-        bool p2Pressed;
-        bool timer;
-        float startTime;
 
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -81,13 +74,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            if (m_Jumping == true)
-            {
-                m_WalkSpeed = 5;
-            }
-            else {
-                m_WalkSpeed = 5;
-            }
 
             GetComponent<UNGA>().p1Arm = p1Arm;
             GetComponent<UNGA>().p2Arm = p2Arm;
@@ -210,49 +196,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
+            if (p1Arm == 2 && p2Arm == 2)
+            {
+                m_JumpSpeed = 20;
+            }
+            else {
+                m_JumpSpeed = 10;        
+            }
+
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump && p1Arm == 2 && p2Arm != 2)
+            if (!m_Jump && p1Arm == 2)
             {
-                m_JumpSpeed = 10;
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Action1");
             }
 
-            if (!m_Jump && p2Arm == 2 && p1Arm != 2)
+            if (!m_Jump && p2Arm == 2)
             {
-                m_JumpSpeed = 10;
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Action2");
-            }
-            if (!m_Jump && p1Arm == 2 && p2Arm == 2) {
-
-                if (Input.GetButtonDown("Action1")) {
-                    p1Pressed = true;
-                }
-                if (Input.GetButtonDown("Action2")) {
-                    p2Pressed = true;
-                }
-
-                  if (timer != true && (p1Pressed == true || p2Pressed == true)) {
-                      timer = true;
-                      startTime = Time.time;
-                  }
-                  if (timer == true && Time.time - startTime > 0.075f) {
-                      timer = false;
-                    if (p1Pressed == true && p2Pressed == true)
-                      {
-                          m_JumpSpeed = 20;
-                          m_Jump = true;
-                        p1Pressed = false;
-                        p2Pressed = false;
-                      }
-                      else
-                      {
-                          m_JumpSpeed = 10;
-                          m_Jump = true;
-                        p1Pressed = false;
-                        p2Pressed = false;
-                    }
-                  }
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
