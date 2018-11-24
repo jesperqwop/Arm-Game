@@ -22,6 +22,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public int projectileSpeed;
         bool p1CanSwitch = true;
         bool p2CanSwitch = true;
+        bool p1Pressed;
+        bool p2Pressed;
+        float startTime;
+        bool timer;
 
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -196,23 +200,54 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
-            if (p1Arm == 2 && p2Arm == 2)
+            if (!m_Jumping && !m_Jump && p1Arm == 2 && p2Arm == 2)
             {
-                m_JumpSpeed = 20;
-            }
-            else {
-                m_JumpSpeed = 10;        
+
+                if (Input.GetButtonDown("Action1"))
+                {
+                    p1Pressed = true;
+                }
+                if (Input.GetButtonDown("Action2"))
+                {
+                    p2Pressed = true;
+                }
+
+                if (timer != true && (p1Pressed == true || p2Pressed == true))
+                {
+                    timer = true;
+                    startTime = Time.time;
+                }
+                if (timer == true && Time.time - startTime > 0.075f)
+                {
+                    timer = false;
+                    if (p1Pressed == true && p2Pressed == true)
+                    {
+                        m_JumpSpeed = 20;
+                        m_Jump = true;
+                        p1Pressed = false;
+                        p2Pressed = false;
+                    }
+                    else
+                    {
+                        m_JumpSpeed = 10;
+                        m_Jump = true;
+                        p1Pressed = false;
+                        p2Pressed = false;
+                    }
+                }
             }
 
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump && p1Arm == 2)
+            if (!m_Jumping && !m_Jump && p1Arm == 2 && p2Arm != 2)
             {
+                m_JumpSpeed = 10;
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Action1");
             }
 
-            if (!m_Jump && p2Arm == 2)
+            if (!m_Jumping && !m_Jump && p2Arm == 2 && p1Arm != 2)
             {
+                m_JumpSpeed = 10;
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Action2");
             }
 
