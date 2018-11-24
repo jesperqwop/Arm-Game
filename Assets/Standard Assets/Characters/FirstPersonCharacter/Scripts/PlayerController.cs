@@ -21,6 +21,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject projectile;
         public GameObject jumpSFX;
         public GameObject superJumpSFX;
+        public GameObject superJumpFX;
         public int projectileSpeed;
         bool p1CanSwitch = true;
         bool p2CanSwitch = true;
@@ -230,6 +231,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         p2Pressed = false;
                         var sfx = (GameObject)Instantiate(superJumpSFX, transform.position, transform.rotation);
                         Destroy(sfx, 3);
+                        var sfx2 = (GameObject)Instantiate(superJumpFX, transform.position, transform.rotation);
+                        Destroy(sfx2, 3);
                     }
                     else
                     {

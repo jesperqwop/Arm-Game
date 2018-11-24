@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!4 &278850150133588035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6911703379949721941, guid: 5b0682312a23d4e4da134f0d10161d33,
+    type: 3}
+  m_PrefabInstance: {fileID: 6644464358221150486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1806716424708970119 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6911703379949721941, guid: 5b0682312a23d4e4da134f0d10161d33,
+    type: 3}
+  m_PrefabInstance: {fileID: 5114385614998949842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1195316713033626099
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,18 +433,6 @@ MonoBehaviour:
     format: 0
     data: 
   shadowDatas: []
---- !u!4 &1806716424708970119 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6911703379949721941, guid: 5b0682312a23d4e4da134f0d10161d33,
-    type: 3}
-  m_PrefabInstance: {fileID: 5114385614998949842}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &278850150133588035 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6911703379949721941, guid: 5b0682312a23d4e4da134f0d10161d33,
-    type: 3}
-  m_PrefabInstance: {fileID: 6644464358221150486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4157358386929060547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1078,8 @@ MonoBehaviour:
     type: 3}
   jumpSFX: {fileID: 7105996045351246467, guid: 104d60075a0d0ea4094f9c0b5ea80a01, type: 3}
   superJumpSFX: {fileID: 5177629258864211322, guid: 903feeeee1e7f674198a42a33347584d,
+    type: 3}
+  superJumpFX: {fileID: 629212033153028785, guid: 7afd5c7f61180974291193ab2a017127,
     type: 3}
   projectileSpeed: 100
   m_IsWalking: 0
