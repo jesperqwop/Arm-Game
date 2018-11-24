@@ -14,11 +14,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         public int p1Arm = 1;
         public int p2Arm = 1;
+        public float fireRate;
         public GameObject leftArm;
         public GameObject rightArm;
         public GameObject[] leftArms;
         public GameObject[] rightArms;
         public GameObject projectile;
+        public GameObject superProjectile;
         public GameObject jumpSFX;
         public GameObject superJumpSFX;
         public GameObject superJumpFX;
@@ -29,6 +31,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         bool p2Pressed;
         float startTime;
         bool timer;
+        bool p1Shoot;
+        bool p2Shoot;
+        float shootTime;
+        bool shootTimer;
+        bool p1CanShoot = true;
+        bool p2CanShoot = true;
 
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -85,32 +93,65 @@ namespace UnityStandardAssets.Characters.FirstPerson
             GetComponent<UNGA>().p1Arm = p1Arm;
             GetComponent<UNGA>().p2Arm = p2Arm;
 
-            if (Input.GetButtonDown("Action1")) {
-                if (p1Arm == 1) {
-                    Fire(1);
-                }
-                if (p1Arm == 2) {
+            /* if (Input.GetButtonDown("Action1")) {
+                 if (p1Arm == 1) {
+                     Fire(1);
+                 }
+             }
+             if (Input.GetButtonDown("Action2"))
+             {
+                 if (p2Arm == 1)
+                 {
+                     Fire(2);
+                 }
+             }*/
 
-                }
-                if (p1Arm == 3) {
-
-                }
-            }
-            if (Input.GetButtonDown("Action2"))
+            if (p1Arm == 1 && p2Arm != 1)
             {
-                if (p2Arm == 1)
+                if (Input.GetButtonDown("Action1") && p1CanShoot == true)
                 {
-                    Fire(2);
-                }
-                if (p2Arm == 2)
-                {
-
-                }
-                if (p2Arm == 3)
-                {
-
+                StartCoroutine(Fire(1));
                 }
             }
+            if (p2Arm == 1 && p1Arm != 1)
+            {
+                if (Input.GetButtonDown("Action2") && p2CanShoot == true)
+                {
+                    StartCoroutine(Fire(2));
+                }
+            }
+            if (p1Arm == 1 && p2Arm == 1) {
+                if (Input.GetButtonDown("Action1") && p1CanShoot == true)
+                {
+                    p1Shoot = true;
+                }
+                if (Input.GetButtonDown("Action2") && p2CanShoot == true)
+                {
+                    p2Shoot = true;
+                }
+
+                if(shootTimer != true && (p1Shoot == true || p2Shoot == true))
+                {
+                    shootTime = Time.time;
+                    shootTimer = true;
+                }
+                if(shootTimer == true & Time.time-shootTime > 0.075f)
+                {
+                    shootTimer = false;
+                    if(p1Shoot == true && p2Shoot == true)
+                    {
+                        StartCoroutine(Fire(3));
+                    }else if(p1Shoot == true)
+                    {
+                        StartCoroutine(Fire(1));
+                    }else if(p2Shoot == true)
+                    {
+                        StartCoroutine(Fire(2));
+                    }
+                }
+
+            }
+
 
             if (p1Arm == 3)
             {
@@ -353,20 +394,52 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-        void Fire(int arm) {
+        IEnumerator Fire(int arm) {
             if (arm == 1)
             {
+                p1CanShoot = false;
+                p1Shoot = false;
+                if(p2Arm != 1)
+                {
+                    yield return new WaitForSeconds(0.075f);
+                }
                 leftArm.GetComponent<Animator>().SetTrigger("fire");
                 var bullet = (GameObject) Instantiate(projectile, leftArm.transform.GetChild(3).position, leftArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
+                yield return new WaitForSeconds(fireRate);
+                p1CanShoot = true;
             }
             if (arm == 2)
             {
+                p2CanShoot = false;
+                p2Shoot = false;
+                if (p1Arm != 1)
+                {
+                    yield return new WaitForSeconds(0.075f);
+                }
                 rightArm.GetComponent<Animator>().SetTrigger("fire");
                 var bullet = (GameObject) Instantiate(projectile, rightArm.transform.GetChild(3).position, rightArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
+                yield return new WaitForSeconds(fireRate);
+                p2CanShoot = true;
+            }
+
+            if (arm == 3)
+            {
+                    p1CanShoot = false;
+                    p2CanShoot = false;
+                    p1Shoot = false;
+                    p2Shoot = false;
+                    leftArm.GetComponent<Animator>().SetTrigger("superFire");
+                    rightArm.GetComponent<Animator>().SetTrigger("superFire");
+                    var bullet = (GameObject)Instantiate(superProjectile, transform.GetChild(0).GetChild(1).position, transform.GetChild(0).GetChild(1).rotation);
+                    bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
+                    Destroy(bullet, 2.0f);
+                    yield return new WaitForSeconds(fireRate);
+                    p1CanShoot = true;
+                    p2CanShoot = true;          
             }
         }
 
