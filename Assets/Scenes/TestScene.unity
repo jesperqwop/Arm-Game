@@ -2478,6 +2478,71 @@ PrefabInstance:
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 204901099}
+    - target: {fileID: 2329600671132511522, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671142471546, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671142471546, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671132511522, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: WarpDistortion
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671142301364, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671132511522, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: isWarping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671124112892, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671124112892, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671124112892, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671124112892, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671124112892, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.3537736
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671124112892, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.47881997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329600671124112892, guid: 95682601fb8e4f947bbe4e07f918f77c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95682601fb8e4f947bbe4e07f918f77c, type: 3}
 --- !u!1 &1692115088

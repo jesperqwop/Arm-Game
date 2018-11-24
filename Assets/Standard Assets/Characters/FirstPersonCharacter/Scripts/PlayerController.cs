@@ -233,6 +233,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         Destroy(sfx, 3);
                         var sfx2 = (GameObject)Instantiate(superJumpFX, transform.position, transform.rotation);
                         Destroy(sfx2, 3);
+                        var sfx3 = (GameObject)Instantiate(superJumpFX, transform.GetChild(1).position, transform.GetChild(1).rotation);
+                        sfx3.transform.parent = transform.GetChild(1);
+                        Destroy(sfx3, 3);
                     }
                     else
                     {
