@@ -89,22 +89,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            if(m_Jumping == true)
+            {
+                m_WalkSpeed = 7.5f;
+            }
+            else
+            {
+                m_WalkSpeed = 4;
+            }
 
             GetComponent<UNGA>().p1Arm = p1Arm;
             GetComponent<UNGA>().p2Arm = p2Arm;
-
-            /* if (Input.GetButtonDown("Action1")) {
-                 if (p1Arm == 1) {
-                     Fire(1);
-                 }
-             }
-             if (Input.GetButtonDown("Action2"))
-             {
-                 if (p2Arm == 1)
-                 {
-                     Fire(2);
-                 }
-             }*/
 
             if (p1Arm == 1 && p2Arm != 1)
             {
@@ -244,7 +239,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
-            if (!m_Jumping && !m_Jump && p1Arm == 2 && p2Arm == 2)
+            if (m_CharacterController.isGrounded && !m_Jumping && !m_Jump && p1Arm == 2 && p2Arm == 2)
             {
 
                 if (Input.GetButtonDown("Action1"))
@@ -292,7 +287,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jumping && !m_Jump && p1Arm == 2 && p2Arm != 2)
+            if (m_CharacterController.isGrounded && !m_Jumping && !m_Jump && p1Arm == 2 && p2Arm != 2)
             {
                 if (Input.GetButtonDown("Action1")) {
                 m_JumpSpeed = 10;
@@ -302,7 +297,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
-            if (!m_Jumping && !m_Jump && p2Arm == 2 && p1Arm != 2)
+            if (m_CharacterController.isGrounded && !m_Jumping && !m_Jump && p2Arm == 2 && p1Arm != 2)
             {
                 if (Input.GetButtonDown("Action2"))
                 {
