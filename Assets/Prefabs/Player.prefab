@@ -1064,7 +1064,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1Arm: 1
   p2Arm: 1
-  UNGA: {fileID: 994862137215668655}
   leftArm: {fileID: 5669059693224434937}
   rightArm: {fileID: 5669059692158230090}
   leftArms:
@@ -1076,6 +1075,9 @@ MonoBehaviour:
   - {fileID: 5669059694021893937}
   - {fileID: 5669059693907913860}
   projectile: {fileID: 785969283002354117, guid: 1efc1673c2d6df54db6c35e67b7ffa2b,
+    type: 3}
+  jumpSFX: {fileID: 7105996045351246467, guid: 104d60075a0d0ea4094f9c0b5ea80a01, type: 3}
+  superJumpSFX: {fileID: 5177629258864211322, guid: 903feeeee1e7f674198a42a33347584d,
     type: 3}
   projectileSpeed: 100
   m_IsWalking: 0

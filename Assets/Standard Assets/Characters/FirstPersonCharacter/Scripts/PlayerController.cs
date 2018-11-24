@@ -19,6 +19,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject[] leftArms;
         public GameObject[] rightArms;
         public GameObject projectile;
+        public GameObject jumpSFX;
+        public GameObject superJumpSFX;
         public int projectileSpeed;
         bool p1CanSwitch = true;
         bool p2CanSwitch = true;
@@ -226,6 +228,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         m_Jump = true;
                         p1Pressed = false;
                         p2Pressed = false;
+                        var sfx = (GameObject)Instantiate(superJumpSFX, transform.position, transform.rotation);
+                        Destroy(sfx, 3);
                     }
                     else
                     {
@@ -233,6 +237,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         m_Jump = true;
                         p1Pressed = false;
                         p2Pressed = false;
+                        var sfx = (GameObject)Instantiate(jumpSFX, transform.position, transform.rotation);
+                        Destroy(sfx, 3);
                     }
                 }
             }
@@ -241,14 +247,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jumping && !m_Jump && p1Arm == 2 && p2Arm != 2)
             {
+                if (Input.GetButtonDown("Action1")) {
                 m_JumpSpeed = 10;
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Action1");
+                    m_Jump = true;
+                  var sfx = (GameObject) Instantiate(jumpSFX, transform.position, transform.rotation);
+                  Destroy(sfx, 3);
+                }
             }
 
             if (!m_Jumping && !m_Jump && p2Arm == 2 && p1Arm != 2)
             {
-                m_JumpSpeed = 10;
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Action2");
+                if (Input.GetButtonDown("Action2"))
+                {
+                    m_JumpSpeed = 10;
+                    m_Jump = true;
+                    var sfx = (GameObject)Instantiate(jumpSFX, transform.position, transform.rotation);
+                    Destroy(sfx, 3);
+                }
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
