@@ -111,13 +111,13 @@ MonoBehaviour:
     m_Value: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   density:
     m_OverrideState: 1
-    m_Value: 0.24
+    m_Value: 0.06
     min: 0
     max: 1
   mipFogMaxMip:
@@ -135,14 +135,14 @@ MonoBehaviour:
     min: 0
   fogDistance:
     m_OverrideState: 1
-    m_Value: 6.4
+    m_Value: 1.58
     min: 0
   fogBaseHeight:
     m_OverrideState: 1
-    m_Value: 0.28
+    m_Value: 1.06
   fogHeightAttenuation:
     m_OverrideState: 1
-    m_Value: 0.19
+    m_Value: 0.07
     min: 0
     max: 1
 --- !u!114 &114914201461855468
