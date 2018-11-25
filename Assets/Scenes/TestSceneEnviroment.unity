@@ -1118,6 +1118,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 17f078e6ca82948b880390eb84f4ddea, type: 2}
+    - target: {fileID: 1674485531799917761, guid: 500e3d02fbca0cd499a74e0955181ef7,
+        type: 3}
+      propertyPath: fireCooldown
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674485531799917761, guid: 500e3d02fbca0cd499a74e0955181ef7,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 500e3d02fbca0cd499a74e0955181ef7, type: 3}
 --- !u!1 &265950306
@@ -4066,6 +4076,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674485531799917761, guid: 500e3d02fbca0cd499a74e0955181ef7,
+        type: 3}
+      propertyPath: fireCooldown
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674485531799917761, guid: 500e3d02fbca0cd499a74e0955181ef7,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 500e3d02fbca0cd499a74e0955181ef7, type: 3}

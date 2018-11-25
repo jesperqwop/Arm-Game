@@ -67,7 +67,7 @@ MonoBehaviour:
   hp: 10
   inRange: 0
   fireCooldown: 0.5
-  projectileSpeed: 50
+  projectileSpeed: 10
   rotationSpeed: 10
   projectile: {fileID: 7531160366926043959, guid: a1e4b6bddd64fd942a94be7456b1eb65,
     type: 3}
@@ -195,16 +195,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fa7c043926e750b4f9925b427ae6e5ac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.638
-  m_Pitch: 1
+  m_Volume: 1
+  m_Pitch: 0.58
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 2
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -239,7 +239,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -254,7 +254,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -269,7 +269,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
