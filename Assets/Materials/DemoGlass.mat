@@ -172,7 +172,7 @@ Material:
     - _HeightTessCenter: 0.5
     - _InitialBend: 1
     - _InvTilingScale: 1
-    - _Ior: 1.382
+    - _Ior: 1.293
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
@@ -191,7 +191,7 @@ Material:
     - _SSRefractionProjectionModel: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
-    - _Smoothness: 0.35
+    - _Smoothness: 0.67
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -207,7 +207,7 @@ Material:
     - _SurfaceType: 1
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
-    - _Thickness: 0.61
+    - _Thickness: 0.598
     - _ThicknessMultiplier: 1
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
