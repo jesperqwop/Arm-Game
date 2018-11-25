@@ -21,6 +21,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject[] rightArms;
         public GameObject projectile;
         public GameObject superProjectile;
+        public GameObject superProjectileFX;
+        public GameObject fireSFX;
+        public GameObject superFireSFX;
         public GameObject jumpSFX;
         public GameObject superJumpSFX;
         public GameObject superJumpFX;
@@ -415,6 +418,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     yield return new WaitForSeconds(0.075f);
                 }
                 leftArm.GetComponent<Animator>().SetTrigger("fire");
+                var sfx = (GameObject)Instantiate(fireSFX, transform.position, transform.rotation);
+                Destroy(sfx, 3);
                 var bullet = (GameObject) Instantiate(projectile, leftArm.transform.GetChild(3).position, leftArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
@@ -430,6 +435,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     yield return new WaitForSeconds(0.075f);
                 }
                 rightArm.GetComponent<Animator>().SetTrigger("fire");
+                var sfx = (GameObject)Instantiate(fireSFX, transform.position, transform.rotation);
+                Destroy(sfx, 3);
                 var bullet = (GameObject) Instantiate(projectile, rightArm.transform.GetChild(3).position, rightArm.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                 Destroy(bullet, 2.0f);
@@ -445,9 +452,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     p2Shoot = false;
                     leftArm.GetComponent<Animator>().SetTrigger("superFire");
                     rightArm.GetComponent<Animator>().SetTrigger("superFire");
+                    var sfx = (GameObject)Instantiate(superFireSFX, transform.position, transform.rotation);
+                    Destroy(sfx, 3);
                     var bullet = (GameObject)Instantiate(superProjectile, transform.GetChild(0).GetChild(1).position, transform.GetChild(0).GetChild(1).rotation);
                     bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * projectileSpeed;
                     Destroy(bullet, 2.0f);
+                    var fx = (GameObject)Instantiate(superProjectileFX, transform.GetChild(0).GetChild(1).position, transform.GetChild(0).GetChild(1).rotation);
+                    Destroy(fx, 2.0f);
                     yield return new WaitForSeconds(fireRate);
                     p1CanShoot = true;
                     p2CanShoot = true;          

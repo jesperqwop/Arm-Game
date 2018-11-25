@@ -3334,5 +3334,35 @@ PrefabInstance:
       propertyPath: speed
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2420657634712983585, guid: 62b52333d828d174a886ca33da56a07e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 51af4a1a71d94034d9f21426b3290044,
+        type: 3}
+    - target: {fileID: 7657175805392899201, guid: 62b52333d828d174a886ca33da56a07e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 383ceaaeffc14f043b7cc29344d2912f,
+        type: 3}
+    - target: {fileID: 3184534144059962080, guid: 62b52333d828d174a886ca33da56a07e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ba3c69d2dcf6b8a48886e7c1bbd54817,
+        type: 3}
+    - target: {fileID: 7544032946690078353, guid: 62b52333d828d174a886ca33da56a07e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 51af4a1a71d94034d9f21426b3290044,
+        type: 3}
+    - target: {fileID: 8530372827514358217, guid: 62b52333d828d174a886ca33da56a07e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d0be70021830c4746b30c6529db6841a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b52333d828d174a886ca33da56a07e, type: 3}
