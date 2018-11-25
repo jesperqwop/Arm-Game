@@ -20,8 +20,9 @@ public class MovingPlatform : MonoBehaviour
     {
         if (transform.position != target[current].position)
         {
-            Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, Time.deltaTime * speed);
-            GetComponent<Rigidbody>().MovePosition(pos);
+            //Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, Time.deltaTime * speed);
+           // GetComponent<Rigidbody>().MovePosition(pos);
+           transform.position = Vector3.MoveTowards(transform.position, target[current].position, Time.deltaTime * speed);
         }
         else {
             current = (current + 1) % target.Length;

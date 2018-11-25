@@ -11,6 +11,8 @@ public class Turret : MonoBehaviour
     public float rotationSpeed;
     public GameObject projectile;
     public GameObject explosion;
+    public GameObject hurtSFX;
+    public GameObject explosionSFX;
     GameObject player;
     Animator anim;
     bool canFire = true;
@@ -77,8 +79,12 @@ public class Turret : MonoBehaviour
 
     public void TakeDamage(float damage) {
         hp -= damage;
-        if(hp <= 0)
+        var sfx = (GameObject)Instantiate(hurtSFX, transform.position, transform.rotation);
+        Destroy(sfx, 2);
+        if (hp <= 0)
         {
+            var sfx2 = (GameObject)Instantiate(explosionSFX, transform.position, transform.rotation);
+            Destroy(sfx2, 2);
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
