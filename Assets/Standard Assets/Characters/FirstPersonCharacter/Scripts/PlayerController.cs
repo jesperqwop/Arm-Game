@@ -24,6 +24,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject jumpSFX;
         public GameObject superJumpSFX;
         public GameObject superJumpFX;
+        public GameObject superJumpFX2;
         public int projectileSpeed;
         bool p1CanSwitch = true;
         bool p2CanSwitch = true;
@@ -261,6 +262,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     timer = false;
                     if (p1Pressed == true && p2Pressed == true)
                     {
+                        leftArm.GetComponent<Animator>().SetTrigger("switch");
+                        rightArm.GetComponent<Animator>().SetTrigger("switch");
                         m_JumpSpeed = 20;
                         m_Jump = true;
                         p1Pressed = false;
@@ -269,12 +272,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         Destroy(sfx, 3);
                         var sfx2 = (GameObject)Instantiate(superJumpFX, transform.position, transform.rotation);
                         Destroy(sfx2, 3);
-                        var sfx3 = (GameObject)Instantiate(superJumpFX, transform.GetChild(1).position, transform.GetChild(1).rotation);
+                        var sfx3 = (GameObject)Instantiate(superJumpFX2, transform.GetChild(1).position, transform.GetChild(1).rotation);
                         sfx3.transform.parent = transform.GetChild(1);
                         Destroy(sfx3, 3);
                     }
-                    else
+                    else if(p1Pressed)
                     {
+                        leftArm.GetComponent<Animator>().SetTrigger("switch");
+                        m_JumpSpeed = 10;
+                        m_Jump = true;
+                        p1Pressed = false;
+                        p2Pressed = false;
+                        var sfx = (GameObject)Instantiate(jumpSFX, transform.position, transform.rotation);
+                        Destroy(sfx, 3);
+                    }
+                    else if (p2Pressed)
+                    {
+                        rightArm.GetComponent<Animator>().SetTrigger("switch");
                         m_JumpSpeed = 10;
                         m_Jump = true;
                         p1Pressed = false;
@@ -294,6 +308,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_Jump = true;
                   var sfx = (GameObject) Instantiate(jumpSFX, transform.position, transform.rotation);
                   Destroy(sfx, 3);
+                    leftArm.GetComponent<Animator>().SetTrigger("switch");
                 }
             }
 
@@ -305,6 +320,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_Jump = true;
                     var sfx = (GameObject)Instantiate(jumpSFX, transform.position, transform.rotation);
                     Destroy(sfx, 3);
+                    rightArm.GetComponent<Animator>().SetTrigger("switch");
                 }
             }
 
