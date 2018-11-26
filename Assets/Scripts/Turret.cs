@@ -37,7 +37,7 @@ public class Turret : MonoBehaviour
         layerMask = ~layerMask;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, player.transform.position -transform.position, out hit, Mathf.Infinity,layerMask)) {
+        if (Physics.Raycast(transform.position, player.transform.position -transform.position, out hit, Mathf.Infinity)) {
             Debug.DrawRay(transform.position, (player.transform.position - transform.position) * hit.distance, Color.red);
             if (hit.collider.tag == "Player")
             {
@@ -94,6 +94,7 @@ public class Turret : MonoBehaviour
     }
 
     IEnumerator Fire() {
+        fireCooldown = Random.Range(0.7f, 1);
         canFire = false;
         audio.Play();
         var bullet = (GameObject)Instantiate(projectile, transform.GetChild(1).position,transform.rotation);
