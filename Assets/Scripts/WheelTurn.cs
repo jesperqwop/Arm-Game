@@ -30,7 +30,8 @@ public class WheelTurn : MonoBehaviour
     void Update()
     {
 
-        if(player.GetComponent<UNGA>().p1Arm == 1) {
+        if(player.GetComponent<UNGA>().p1Arm == 1)
+        {
             attack1.GetComponent<Image>().sprite = sprites[1];
             jump1.GetComponent<Image>().sprite = sprites[2];
             shield1.GetComponent<Image>().sprite = sprites[4];
@@ -52,19 +53,19 @@ public class WheelTurn : MonoBehaviour
             attack2.GetComponent<Image>().sprite = sprites[1];
             jump2.GetComponent<Image>().sprite = sprites[2];
             shield2.GetComponent<Image>().sprite = sprites[4];
-            }
-            if (player.GetComponent<UNGA>().p2Arm == 2)
-            {
-                attack2.GetComponent<Image>().sprite = sprites[0];
-                jump2.GetComponent<Image>().sprite = sprites[3];
-                shield2.GetComponent<Image>().sprite = sprites[4];
-            }
-            if (player.GetComponent<UNGA>().p2Arm == 3)
-            {
-                attack2.GetComponent<Image>().sprite = sprites[0];
-                jump2.GetComponent<Image>().sprite = sprites[2];
-                shield2.GetComponent<Image>().sprite = sprites[5];
-            }
+        }
+        if (player.GetComponent<UNGA>().p2Arm == 2)
+        {
+            attack2.GetComponent<Image>().sprite = sprites[0];
+            jump2.GetComponent<Image>().sprite = sprites[3];
+            shield2.GetComponent<Image>().sprite = sprites[4];
+        }
+        if (player.GetComponent<UNGA>().p2Arm == 3)
+        {
+            attack2.GetComponent<Image>().sprite = sprites[0];
+            jump2.GetComponent<Image>().sprite = sprites[2];
+            shield2.GetComponent<Image>().sprite = sprites[5];
+        }
 
         }
 }
