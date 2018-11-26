@@ -33,8 +33,11 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int layerMask = 1 << 9;
+        layerMask = ~layerMask;
+
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, player.transform.position -transform.position, out hit, Mathf.Infinity)) {
+        if (Physics.Raycast(transform.position, player.transform.position -transform.position, out hit, Mathf.Infinity,layerMask)) {
             Debug.DrawRay(transform.position, (player.transform.position - transform.position) * hit.distance, Color.red);
             if (hit.collider.tag == "Player")
             {
