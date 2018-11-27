@@ -56,7 +56,7 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
-    m_BakeResolution: 40
+    m_BakeResolution: 48
     m_AtlasSize: 512
     m_AO: 0
     m_AOMaxDistance: 1
@@ -5092,6 +5092,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1b6c59a6083e942819367371d2b65e92, type: 2}
+    - target: {fileID: 535306428877582644, guid: 00c2646e0c2684af785a7abd1613a74e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439954483044696036, guid: 00c2646e0c2684af785a7abd1613a74e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830711370905384617, guid: 00c2646e0c2684af785a7abd1613a74e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00c2646e0c2684af785a7abd1613a74e, type: 3}
 --- !u!1 &1412142683 stripped
@@ -5223,7 +5238,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe0406808c4544b8dbc2b011a00c23be, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.355
+  m_Volume: 0.071
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5421,12 +5436,12 @@ MonoBehaviour:
   shapeHeight: 0.5
   aspectRatio: 1
   shapeRadius: 0
-  maxSmoothness: 0.99
+  maxSmoothness: 0.586
   applyRangeAttenuation: 1
   useOldInspector: 0
   featuresFoldout: 1
-  showAdditionalSettings: 0
-  displayLightIntensity: 900
+  showAdditionalSettings: 1
+  displayLightIntensity: 1200
   displayAreaLightEmissiveMesh: 0
   lightLayers: 1
   shadowNearPlane: 0.1
@@ -5444,8 +5459,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.85617656, g: 0.95003605, b: 0.9811321, a: 1}
-  m_Intensity: 71.61972
-  m_Range: 90.79
+  m_Intensity: 95.492966
+  m_Range: 16.12
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
@@ -5480,7 +5495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501676457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -112.86, y: 38.19, z: -57.54}
+  m_LocalPosition: {x: -108.16, y: 39.06, z: -57.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7401,12 +7416,12 @@ MonoBehaviour:
   shapeHeight: 0.5
   aspectRatio: 1
   shapeRadius: 0
-  maxSmoothness: 0.99
+  maxSmoothness: 0.586
   applyRangeAttenuation: 1
   useOldInspector: 0
   featuresFoldout: 1
-  showAdditionalSettings: 0
-  displayLightIntensity: 900
+  showAdditionalSettings: 1
+  displayLightIntensity: 1200
   displayAreaLightEmissiveMesh: 0
   lightLayers: 1
   shadowNearPlane: 0.1
@@ -7424,8 +7439,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.85617656, g: 0.95003605, b: 0.9811321, a: 1}
-  m_Intensity: 71.61972
-  m_Range: 90.79
+  m_Intensity: 95.492966
+  m_Range: 16.12
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
@@ -7460,7 +7475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932645453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -95.1, y: 38.19, z: -57.54}
+  m_LocalPosition: {x: -87.5, y: 39.06, z: -57.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8147,12 +8162,12 @@ MonoBehaviour:
   shapeHeight: 0.5
   aspectRatio: 1
   shapeRadius: 0
-  maxSmoothness: 0.99
+  maxSmoothness: 0.586
   applyRangeAttenuation: 1
   useOldInspector: 0
   featuresFoldout: 1
-  showAdditionalSettings: 0
-  displayLightIntensity: 900
+  showAdditionalSettings: 1
+  displayLightIntensity: 1200
   displayAreaLightEmissiveMesh: 0
   lightLayers: 1
   shadowNearPlane: 0.1
@@ -8170,8 +8185,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.85617656, g: 0.95003605, b: 0.9811321, a: 1}
-  m_Intensity: 71.61972
-  m_Range: 90.79
+  m_Intensity: 95.492966
+  m_Range: 16.12
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
@@ -8206,7 +8221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112759588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -69.7, y: 38.19, z: -57.54}
+  m_LocalPosition: {x: -65, y: 39.06, z: -57.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
